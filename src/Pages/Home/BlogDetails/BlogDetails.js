@@ -18,8 +18,8 @@ const BlogDetails = () => {
     console.log(singleBlog);
     return (
         <div className='py-5'>
-            <div class="container">
-                {isLoading ? <Spinner animation="border" /> : <div class="row">
+            {isLoading ? <Spinner animation="border" /> : <div class="container">
+                <div class="row">
                     <div class="col-12 col-md-6">
                         <img src={`data:image/png;base64,${singleBlog.image}`} className='img-fluid' alt="" />
                         <div className='d-flex'>
@@ -35,8 +35,8 @@ const BlogDetails = () => {
                         <p>Cost: {singleBlog.cost}</p>
                         <p>Location: {singleBlog.location}</p>
                     </div>
-                </div>}
-            </div>
+                </div>
+            </div>}
         </div>
     );
 };
