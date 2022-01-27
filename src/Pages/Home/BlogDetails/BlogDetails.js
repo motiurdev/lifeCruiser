@@ -1,20 +1,25 @@
 import React, { useEffect, useState } from 'react';
+import { Spinner } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 
 const BlogDetails = () => {
     const { blogDetail } = useParams()
     const [singleBlog, setSingleBlog] = useState({})
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/singleBlog/${blogDetail}`)
+        fetch(`https://warm-meadow-50946.herokuapp.com/singleBlog/${blogDetail}`)
             .then(res => res.json())
-            .then(data => setSingleBlog(data))
+            .then(data => {
+                setSingleBlog(data)
+                setIsLoading(false)
+            })
     }, [blogDetail])
     console.log(singleBlog);
     return (
         <div className='py-5'>
             <div class="container">
-                <div class="row">
+                {isLoading ? <Spinner animation="border" /> : <div class="row">
                     <div class="col-12 col-md-6">
                         <img src={`data:image/png;base64,${singleBlog.image}`} className='img-fluid' alt="" />
                         <div className='d-flex'>
@@ -30,7 +35,7 @@ const BlogDetails = () => {
                         <p>Cost: {singleBlog.cost}</p>
                         <p>Location: {singleBlog.location}</p>
                     </div>
-                </div>
+                </div>}
             </div>
         </div>
     );

@@ -34,7 +34,7 @@ const Experiences = () => {
         formData.append("rating", rating)
         formData.append("status", "unapproved")
 
-        fetch('http://localhost:5000/blog', {
+        fetch('https://warm-meadow-50946.herokuapp.com/blog', {
             method: 'POST',
             body: formData
         })

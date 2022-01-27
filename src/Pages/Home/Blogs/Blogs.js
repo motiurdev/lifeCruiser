@@ -8,7 +8,7 @@ const Blogs = () => {
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-        fetch("http://localhost:5000/blog")
+        fetch("https://warm-meadow-50946.herokuapp.com/blog")
             .then(res => res.json())
             .then(data => {
                 setBlogs(data)
