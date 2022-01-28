@@ -17,6 +17,7 @@ const Navigation = () => {
                         <NavLink to="/about" className="nav-link">About</NavLink>
                         <NavLink to="/experience" className="nav-link">Experience</NavLink>
                         <NavLink to="/contact" className="nav-link">Contact us</NavLink>
+                        <NavLink to="/dashboard" className="nav-link">Dashboard</NavLink>
                     </Nav>
                     <Nav className='ms-5 d-flex align-items-center'>
                         {user.displayName && <span className='text-white'>{user.displayName}</span>}
