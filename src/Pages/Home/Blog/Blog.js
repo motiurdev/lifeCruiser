@@ -31,7 +31,7 @@ const Blog = (props) => {
                             </div>
                         </div>
                     </div>
-                    <p class="card-text text-secondary">{description}</p>
+                    <p class="card-text text-secondary">{description.slice(0, 100)}</p>
                     <Link to={`/blogDetail/${_id}`}>
                         <button type="button" className="btn btn-color">Detail Page</button>
                     </Link>
