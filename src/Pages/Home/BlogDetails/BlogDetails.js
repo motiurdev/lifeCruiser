@@ -27,13 +27,14 @@ const BlogDetails = () => {
                             <p className='pe-4 text-secondary'><i class="far fa-calendar-alt"></i> {singleBlog.date}</p>
                             <p className='pe-4 text-secondary'><i class="far fa-clock"></i> {singleBlog.time}</p>
                         </div>
-                        <p className='text-secondary'>{singleBlog.description}</p>
+                        <h6>Catagory: {singleBlog.catagory}</h6>
+                        <h6>Location: {singleBlog.location}</h6>
                     </div>
                     <div class="col-12 col-md-6">
                         <h1>{singleBlog.title}</h1>
-                        <p>Catagory: {singleBlog.catagory}</p>
-                        <p>Cost: {singleBlog.cost}</p>
-                        <p>Location: {singleBlog.location}</p>
+                        <p className='text-secondary'>{singleBlog.description}</p>
+                        <h4>Cost: ${singleBlog.cost}</h4>
+
                     </div>
                 </div>
             </div>}

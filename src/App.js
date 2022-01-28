@@ -18,6 +18,7 @@ import ManageBlogs from './Pages/Dashboard/ManageBlogs/ManageBlogs';
 import Experiences from './Pages/Experiences/Experiences';
 import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
 import DashboardHome from './Pages/Dashboard/DashboardHome/DashboardHome';
+import PrivateAdmin from './Pages/Dashboard/PrivateAdmin/PrivateAdmin';
 
 
 function App() {
@@ -27,11 +28,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/home" element={<Home />}></Route>
-          <Route path="about" element={<PrivateRoute><AboutHome /></PrivateRoute>}></Route>
+          <Route path="about" element={<AboutHome />}></Route>
           <Route path="experience" element={<PrivateRoute><ExperiencesHome /></PrivateRoute>}></Route>
           <Route path="blogDetail/:blogDetail" element={<BlogDetailsHome />}></Route>
           <Route path="contact" element={<ContactHome />}></Route>
-          <Route path="dashboard" element={<Dashboard />}>
+          <Route path="dashboard" element={<PrivateAdmin><Dashboard /></PrivateAdmin>}>
             <Route exact path="dashboard" element={<DashboardHome></DashboardHome>}></Route>
             <Route path="manageBlogs" element={<ManageBlogs />}></Route>
             <Route path="experience" element={<Experiences />}></Route>

@@ -10,6 +10,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({})
     const [authError, setAuthError] = useState("")
     const [isLoading, setIsLoading] = useState(true)
+    const [admin, setAdmin] = useState(false)
     const googleProvider = new GoogleAuthProvider();
 
     const registerUser = (email, password, displayName, navigate) => {
@@ -18,7 +19,7 @@ const useFirebase = () => {
             .then((userCredential) => {
                 const newUser = { email, displayName }
                 setUser(newUser)
-                console.log(newUser);
+                saveUser(email, displayName, "POST")
                 setAuthError("")
                 navigate("/")
 
@@ -61,6 +62,7 @@ const useFirebase = () => {
             .then((result) => {
                 const user = result.user;
                 setAuthError('');
+                saveUser(user.email, user.displayName, "PUT")
                 const destination = location?.state?.from || '/';
                 navigate(destination);
             }).catch((error) => {
@@ -94,12 +96,32 @@ const useFirebase = () => {
     }, [])
 
 
+    const saveUser = (email, displayName, method) => {
+        const users = { email, displayName }
+        fetch("http://localhost:5000/users", {
+            method: method,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(users)
+        })
+            .then()
+    }
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email])
+
+
     return {
         user,
         registerUser,
         loginUser,
         logOut,
         authError,
+        admin,
         isLoading,
         signInWithGoogle
     }

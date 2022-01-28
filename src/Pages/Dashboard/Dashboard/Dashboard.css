@@ -47,6 +47,12 @@
     border: none;
     color: #fff;
   }
+
+  .dashboard-logout {
+    background: transparent;
+    border: none;
+    color: #fff;
+  }
   
   
   @media screen and (max-width: 700px) {

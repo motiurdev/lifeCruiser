@@ -5,7 +5,7 @@ import useAuth from '../../../hooks/useAuth';
 import './Navigation.css'
 
 const Navigation = () => {
-    const { user, logOut } = useAuth()
+    const { user, logOut, admin } = useAuth()
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
@@ -17,7 +17,8 @@ const Navigation = () => {
                         <NavLink to="/about" className="nav-link">About</NavLink>
                         <NavLink to="/experience" className="nav-link">Experience</NavLink>
                         <NavLink to="/contact" className="nav-link">Contact us</NavLink>
-                        <NavLink to="/dashboard" className="nav-link">Dashboard</NavLink>
+                        {admin &&
+                            <NavLink to="/dashboard" className="nav-link">Dashboard</NavLink>}
                     </Nav>
                     <Nav className='ms-5 d-flex align-items-center'>
                         {user.displayName && <span className='text-white'>{user.displayName}</span>}
