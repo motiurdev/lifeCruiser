@@ -7,7 +7,7 @@ const ManageBlog = (props) => {
     const handleDelete = (id) => {
         const confirm = window.confirm("Are you sure? You want to delete this order")
         if (confirm) {
-            fetch(`http://localhost:5000/deleteSingleBlog/${id}`, {
+            fetch(`https://warm-meadow-50946.herokuapp.com/deleteSingleBlog/${id}`, {
                 method: "DELETE",
                 headers: {
                     'Content-Type': 'application/json'
@@ -25,7 +25,7 @@ const ManageBlog = (props) => {
     }
 
     const handleStatus = (id) => {
-        fetch(`http://localhost:5000/handleStatus/${id}`, {
+        fetch(`https://warm-meadow-50946.herokuapp.com/handleStatus/${id}`, {
             method: "PUT",
             headers: {
                 'Content-Type': 'application/json'

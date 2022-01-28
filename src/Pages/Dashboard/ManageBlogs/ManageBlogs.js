@@ -7,7 +7,7 @@ const ManageBlogs = () => {
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-        fetch("http://localhost:5000/allBlogs")
+        fetch("https://warm-meadow-50946.herokuapp.com/allBlogs")
             .then(res => res.json())
             .then(data => {
                 setAllBlogs(data)
